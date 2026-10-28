@@ -1,0 +1,27 @@
+{
+  "reimbursement_deadline": [
+    "报销",
+    "报账",
+    "费用申请",
+    "发票提交",
+    "reimbursement",
+    "expense claim"
+  ],
+  "annual_leave": [
+    "年假",
+    "年休假",
+    "休假",
+    "带薪休息",
+    "annual leave",
+    "vacation"
+  ],
+  "export_formats": [
+    "导出",
+    "导出格式",
+    "下载报表",
+    "表格下载",
+    "export",
+    "csv",
+    "xlsx"
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "D01",
+    "title": "费用报销制度A（合成）",
+    "version_date": "2026-09-01",
+    "scope": null,
+    "priority": null,
+    "fragments": [
+      {
+        "id": "F01",
+        "topic": "reimbursement_deadline",
+        "text": "报销申请须在费用发生后30天内提交。"
+      }
+    ]
+  },
+  {
+    "id": "D03",
+    "title": "员工年假FAQ（合成）",
+    "version_date": "2026-09-15",
+    "scope": "正式员工",
+    "priority": null,
+    "fragments": [
+      {
+        "id": "F01",
+        "topic": "annual_leave",
+        "text": "正式员工每年享有5天带薪年假。"
+      }
+    ]
+  },
+  {
+    "id": "D04",
+    "title": "Orion产品导出FAQ（合成）",
+    "version_date": "2026-10-10",
+    "scope": "Orion产品",
+    "priority": null,
+    "fragments": [
+      {
+        "id": "F01",
+        "topic": "export_formats",
+        "text": "Orion产品支持导出CSV和XLSX格式的文件。"
+      }
+    ]
+  }
+]

@@ -1,0 +1,101 @@
+{
+  "case_id": "qa-out_of_scope",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:53:42.771041+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "上海 天气 下雨 预报",
+        "max_results": 5
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "上海 天气 下雨 预报",
+          "matched_topics": [],
+          "total_matches": 0,
+          "has_more": false,
+          "hits": []
+        },
+        "error": null
+      },
+      "next_action": "search_documents",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "search_documents",
+      "arguments": {
+        "query": "weather forecast rain tomorrow Shanghai",
+        "max_results": 5
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "weather forecast rain tomorrow Shanghai",
+          "matched_topics": [],
+          "total_matches": 0,
+          "has_more": false,
+          "hits": []
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "no_answer",
+        "citations": [],
+        "decision_basis": "该问题涉及天气预测，超出公司政策/产品文档范围；两次检索均无匹配文档。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-out_of_scope",
+          "status": "not_found",
+          "question": "明天上海会下雨吗？",
+          "answer": "暂时无法提供有依据的答案。",
+          "citations": [],
+          "knowledge_gaps": [
+            "当前合成知识库没有已核验且支持该问题的原文。"
+          ],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "该问题涉及天气预测，超出公司政策/产品文档范围；两次检索均无匹配文档。"
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "not_found",
+  "finished_at": "2026-10-28T14:53:59.659533+00:00",
+  "result": {
+    "request_id": "qa-out_of_scope",
+    "status": "not_found",
+    "question": "明天上海会下雨吗？",
+    "answer": "暂时无法提供有依据的答案。",
+    "citations": [],
+    "knowledge_gaps": [
+      "当前合成知识库没有已核验且支持该问题的原文。"
+    ],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

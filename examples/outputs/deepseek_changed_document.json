@@ -1,0 +1,25 @@
+{
+  "request_id": "qa-changed_document",
+  "status": "answered",
+  "question": "报销期限多久？",
+  "answer": "根据已核验原文：\n[D01@2026-10-20] 报销申请须在费用发生后45天内提交。",
+  "citations": [
+    {
+      "document_id": "D01",
+      "fragment_id": "F01",
+      "title": "费用报销制度A（合成）",
+      "version_date": "2026-10-20",
+      "scope": null,
+      "priority": null,
+      "content_sha256": "2df80dd162113537efde39bd92ab96e1ac7f348e4990b6f0f8edca75aac56309",
+      "quote": "报销申请须在费用发生后45天内提交。"
+    }
+  ],
+  "knowledge_gaps": [],
+  "clarifying_question": null,
+  "conflicts": [],
+  "missing_fragments": [],
+  "tool_errors": [],
+  "answer_style": "verified_extractive",
+  "published": false
+}

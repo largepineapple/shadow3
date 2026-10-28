@@ -1,0 +1,25 @@
+{
+  "request_id": "qa-product",
+  "status": "answered",
+  "question": "产品可以导出哪些格式？",
+  "answer": "根据已核验原文：\n[D04@2026-10-10] Orion产品支持导出CSV和XLSX格式的文件。",
+  "citations": [
+    {
+      "document_id": "D04",
+      "fragment_id": "F01",
+      "title": "Orion产品导出FAQ（合成）",
+      "version_date": "2026-10-10",
+      "scope": "Orion产品",
+      "priority": null,
+      "content_sha256": "67e58977986f86b6af1cb34ea420a3059e0f552ac0b9aa7ceb3c899b8712c81e",
+      "quote": "Orion产品支持导出CSV和XLSX格式的文件。"
+    }
+  ],
+  "knowledge_gaps": [],
+  "clarifying_question": null,
+  "conflicts": [],
+  "missing_fragments": [],
+  "tool_errors": [],
+  "answer_style": "verified_extractive",
+  "published": false
+}

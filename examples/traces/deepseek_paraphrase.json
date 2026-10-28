@@ -1,0 +1,155 @@
+{
+  "case_id": "qa-paraphrase",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:53:59.964190+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "model_error",
+      "arguments": {},
+      "observation_summary": {
+        "error": "Model must return exactly one tool call"
+      },
+      "next_action": "search_documents",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "search_documents",
+      "arguments": {
+        "query": "带薪休假 年假 天数",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "带薪休假 年假 天数",
+          "matched_topics": [
+            "annual_leave"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D03",
+              "title": "员工年假FAQ（合成）",
+              "version_date": "2026-09-15",
+              "scope": "正式员工",
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "annual_leave"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D03",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "document_id": "D03",
+          "fragment_id": "F01",
+          "version_date": "2026-09-15",
+          "title": "员工年假FAQ（合成）",
+          "scope": "正式员工",
+          "priority": null,
+          "topic": "annual_leave",
+          "text": "正式员工每年享有5天带薪年假。",
+          "content_sha256": "5d260d25f86981e70161460e50c264346c82d1b53c8b0e95f7629699f8b87795"
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "answer",
+        "citations": [
+          {
+            "document_id": "D03",
+            "fragment_id": "F01",
+            "quote": "正式员工每年享有5天带薪年假。"
+          }
+        ],
+        "decision_basis": "年假FAQ（适用正式员工）明确说明每年带薪年假天数。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-paraphrase",
+          "status": "answered",
+          "question": "在这家公司，一年带薪休息有多少天？",
+          "answer": "根据已核验原文：\n[D03@2026-09-15] 正式员工每年享有5天带薪年假。",
+          "citations": [
+            {
+              "document_id": "D03",
+              "fragment_id": "F01",
+              "title": "员工年假FAQ（合成）",
+              "version_date": "2026-09-15",
+              "scope": "正式员工",
+              "priority": null,
+              "content_sha256": "5d260d25f86981e70161460e50c264346c82d1b53c8b0e95f7629699f8b87795",
+              "quote": "正式员工每年享有5天带薪年假。"
+            }
+          ],
+          "knowledge_gaps": [],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "年假FAQ（适用正式员工）明确说明每年带薪年假天数。"
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "answered",
+  "finished_at": "2026-10-28T14:54:23.156381+00:00",
+  "result": {
+    "request_id": "qa-paraphrase",
+    "status": "answered",
+    "question": "在这家公司，一年带薪休息有多少天？",
+    "answer": "根据已核验原文：\n[D03@2026-09-15] 正式员工每年享有5天带薪年假。",
+    "citations": [
+      {
+        "document_id": "D03",
+        "fragment_id": "F01",
+        "title": "员工年假FAQ（合成）",
+        "version_date": "2026-09-15",
+        "scope": "正式员工",
+        "priority": null,
+        "content_sha256": "5d260d25f86981e70161460e50c264346c82d1b53c8b0e95f7629699f8b87795",
+        "quote": "正式员工每年享有5天带薪年假。"
+      }
+    ],
+    "knowledge_gaps": [],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

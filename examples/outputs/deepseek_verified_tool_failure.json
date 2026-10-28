@@ -1,0 +1,52 @@
+{
+  "request_id": "qa-tool_failure",
+  "status": "tool_failed",
+  "question": "正式员工每年有几天年假？",
+  "answer": "暂时无法提供有依据的答案。",
+  "citations": [],
+  "knowledge_gaps": [
+    "检索或原文读取失败，尚有相关片段未核验。"
+  ],
+  "clarifying_question": null,
+  "conflicts": [],
+  "missing_fragments": [
+    [
+      "D03",
+      "F01"
+    ]
+  ],
+  "tool_errors": [
+    {
+      "tool": "read_fragment",
+      "arguments": {
+        "document_id": "D03",
+        "fragment_id": "F01"
+      },
+      "observation": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure before reading data"
+        }
+      }
+    },
+    {
+      "tool": "read_fragment",
+      "arguments": {
+        "document_id": "D03",
+        "fragment_id": "F01"
+      },
+      "observation": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure before reading data"
+        }
+      }
+    }
+  ],
+  "answer_style": "verified_extractive",
+  "published": false
+}

@@ -1,0 +1,204 @@
+{
+  "case_id": "qa-tool_failure",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:54:41.077330+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "正式员工年假天数",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "正式员工年假天数",
+          "matched_topics": [
+            "annual_leave"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D03",
+              "title": "员工年假FAQ（合成）",
+              "version_date": "2026-09-15",
+              "scope": "正式员工",
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "annual_leave"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D03",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure before reading data"
+        }
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D03",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "TOOL_UNAVAILABLE",
+          "message": "Explicit injected failure before reading data"
+        }
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "no_answer",
+        "citations": [],
+        "decision_basis": "找到一份可能相关的文档（D03《员工年假FAQ（合成）》，范围：正式员工），但读取其原文片段的工具连续失败（TOOL_UNAVAILABLE），无法获得可引用的完整原文，因此无法确认年假天数。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-tool_failure",
+          "status": "tool_failed",
+          "question": "正式员工每年有几天年假？",
+          "answer": "暂时无法提供有依据的答案。",
+          "citations": [],
+          "knowledge_gaps": [
+            "检索或原文读取失败，尚有相关片段未核验。"
+          ],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [
+            [
+              "D03",
+              "F01"
+            ]
+          ],
+          "tool_errors": [
+            {
+              "tool": "read_fragment",
+              "arguments": {
+                "document_id": "D03",
+                "fragment_id": "F01"
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure before reading data"
+                }
+              }
+            },
+            {
+              "tool": "read_fragment",
+              "arguments": {
+                "document_id": "D03",
+                "fragment_id": "F01"
+              },
+              "observation": {
+                "ok": false,
+                "data": null,
+                "error": {
+                  "code": "TOOL_UNAVAILABLE",
+                  "message": "Explicit injected failure before reading data"
+                }
+              }
+            }
+          ],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "找到一份可能相关的文档（D03《员工年假FAQ（合成）》，范围：正式员工），但读取其原文片段的工具连续失败（TOOL_UNAVAILABLE），无法获得可引用的完整原文，因此无法确认年假天数。"
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "tool_failed",
+  "finished_at": "2026-10-28T14:55:03.475312+00:00",
+  "result": {
+    "request_id": "qa-tool_failure",
+    "status": "tool_failed",
+    "question": "正式员工每年有几天年假？",
+    "answer": "暂时无法提供有依据的答案。",
+    "citations": [],
+    "knowledge_gaps": [
+      "检索或原文读取失败，尚有相关片段未核验。"
+    ],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [
+      [
+        "D03",
+        "F01"
+      ]
+    ],
+    "tool_errors": [
+      {
+        "tool": "read_fragment",
+        "arguments": {
+          "document_id": "D03",
+          "fragment_id": "F01"
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure before reading data"
+          }
+        }
+      },
+      {
+        "tool": "read_fragment",
+        "arguments": {
+          "document_id": "D03",
+          "fragment_id": "F01"
+        },
+        "observation": {
+          "ok": false,
+          "data": null,
+          "error": {
+            "code": "TOOL_UNAVAILABLE",
+            "message": "Explicit injected failure before reading data"
+          }
+        }
+      }
+    ],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

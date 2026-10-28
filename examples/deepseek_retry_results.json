@@ -1,0 +1,33 @@
+{
+  "mode": "live",
+  "cases": [
+    {
+      "name": "conflict",
+      "input": "examples/inputs/conflict.json",
+      "documents": "data/documents.json",
+      "status": "conflict",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "model_error",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "both_sides": true,
+        "asks_scope": true
+      },
+      "passed": true,
+      "elapsed_seconds": 27.456
+    }
+  ],
+  "elapsed_seconds": 27.456
+}

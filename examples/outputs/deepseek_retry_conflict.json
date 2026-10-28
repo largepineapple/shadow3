@@ -1,0 +1,65 @@
+{
+  "request_id": "qa-conflict",
+  "status": "conflict",
+  "question": "报销期限多久？",
+  "answer": "资料存在冲突，当前不能确定唯一答案：\n[D01@2026-09-01] 报销申请须在费用发生后30天内提交。\n[D02@2026-10-01] 报销申请须在费用发生后15天内提交。",
+  "citations": [
+    {
+      "document_id": "D01",
+      "fragment_id": "F01",
+      "title": "费用报销制度A（合成）",
+      "version_date": "2026-09-01",
+      "scope": null,
+      "priority": null,
+      "content_sha256": "e655c806e9dfc35b27c25aaf525994c17c6a1d497951016873180473f2eafaff",
+      "quote": "报销申请须在费用发生后30天内提交。"
+    },
+    {
+      "document_id": "D02",
+      "fragment_id": "F01",
+      "title": "费用报销制度B（合成）",
+      "version_date": "2026-10-01",
+      "scope": null,
+      "priority": null,
+      "content_sha256": "251d412f2affe1f08ab085cfcc4fe6f1890ffc7d1532e575a079de587ca7b50d",
+      "quote": "报销申请须在费用发生后15天内提交。"
+    }
+  ],
+  "knowledge_gaps": [
+    "制度条款不一致，未提供足以确定适用制度或优先级的依据。"
+  ],
+  "clarifying_question": "请确认适用哪份制度，或提供明确的适用范围和优先级。",
+  "conflicts": [
+    {
+      "topic": "reimbursement_deadline",
+      "variants": [
+        {
+          "document_id": "D01",
+          "fragment_id": "F01",
+          "version_date": "2026-09-01",
+          "title": "费用报销制度A（合成）",
+          "scope": null,
+          "priority": null,
+          "topic": "reimbursement_deadline",
+          "text": "报销申请须在费用发生后30天内提交。",
+          "content_sha256": "e655c806e9dfc35b27c25aaf525994c17c6a1d497951016873180473f2eafaff"
+        },
+        {
+          "document_id": "D02",
+          "fragment_id": "F01",
+          "version_date": "2026-10-01",
+          "title": "费用报销制度B（合成）",
+          "scope": null,
+          "priority": null,
+          "topic": "reimbursement_deadline",
+          "text": "报销申请须在费用发生后15天内提交。",
+          "content_sha256": "251d412f2affe1f08ab085cfcc4fe6f1890ffc7d1532e575a079de587ca7b50d"
+        }
+      ]
+    }
+  ],
+  "missing_fragments": [],
+  "tool_errors": [],
+  "answer_style": "verified_extractive",
+  "published": false
+}

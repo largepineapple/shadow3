@@ -1,0 +1,99 @@
+{
+  "case_id": "qa-ambiguous",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:56:01.709918+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "clarify",
+        "citations": [],
+        "decision_basis": "The question \"那有多久？\" has no prior topic in the history to resolve what duration is being asked about, so clarification is needed."
+      },
+      "observation_summary": {
+        "ok": false,
+        "data": null,
+        "error": {
+          "code": "SEARCH_REQUIRED",
+          "message": "Search before ending the task"
+        }
+      },
+      "next_action": "search_documents",
+      "decision_basis": "The question \"那有多久？\" has no prior topic in the history to resolve what duration is being asked about, so clarification is needed."
+    },
+    {
+      "step": 2,
+      "action": "search_documents",
+      "arguments": {
+        "query": "那有多久 期限 时长",
+        "max_results": 5
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "那有多久 期限 时长",
+          "matched_topics": [],
+          "total_matches": 0,
+          "has_more": false,
+          "hits": []
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "clarify",
+        "citations": [],
+        "decision_basis": "The question \"那有多久？\" refers to a duration with no preceding topic in the history to resolve what it refers to; searching found no matching topic. Please specify which policy or process (e.g., retention, return period, review cycle) you mean."
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-ambiguous",
+          "status": "needs_clarification",
+          "question": "那有多久？",
+          "answer": "需要补充信息后才能可靠回答。",
+          "citations": [],
+          "knowledge_gaps": [
+            "当前合成知识库没有已核验且支持该问题的原文。"
+          ],
+          "clarifying_question": "请明确需要查询的制度、产品问题或适用范围。",
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "The question \"那有多久？\" refers to a duration with no preceding topic in the history to resolve what it refers to; searching found no matching topic. Please specify which policy or process (e.g., retention, return period, review cycle) you mean."
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "needs_clarification",
+  "finished_at": "2026-10-28T14:56:19.440492+00:00",
+  "result": {
+    "request_id": "qa-ambiguous",
+    "status": "needs_clarification",
+    "question": "那有多久？",
+    "answer": "需要补充信息后才能可靠回答。",
+    "citations": [],
+    "knowledge_gaps": [
+      "当前合成知识库没有已核验且支持该问题的原文。"
+    ],
+    "clarifying_question": "请明确需要查询的制度、产品问题或适用范围。",
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

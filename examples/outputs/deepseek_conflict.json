@@ -1,0 +1,25 @@
+{
+  "request_id": "qa-conflict",
+  "status": "incomplete",
+  "question": "报销期限多久？",
+  "answer": "暂时无法提供有依据的答案。",
+  "citations": [],
+  "knowledge_gaps": [
+    "Model request/response failed: Model must return exactly one tool call"
+  ],
+  "clarifying_question": null,
+  "conflicts": [],
+  "missing_fragments": [
+    [
+      "D01",
+      "F01"
+    ],
+    [
+      "D02",
+      "F01"
+    ]
+  ],
+  "tool_errors": [],
+  "answer_style": "verified_extractive",
+  "published": false
+}

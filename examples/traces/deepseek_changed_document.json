@@ -1,0 +1,182 @@
+{
+  "case_id": "qa-changed_document",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:55:21.252356+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "报销期限",
+          "matched_topics": [
+            "reimbursement_deadline"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-10-20",
+              "scope": null,
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "reimbursement_deadline"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D01",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "document_id": "D01",
+          "fragment_id": "F01",
+          "version_date": "2026-10-20",
+          "title": "费用报销制度A（合成）",
+          "scope": null,
+          "priority": null,
+          "topic": "reimbursement_deadline",
+          "text": "报销申请须在费用发生后45天内提交。",
+          "content_sha256": "2df80dd162113537efde39bd92ab96e1ac7f348e4990b6f0f8edca75aac56309"
+        },
+        "error": null
+      },
+      "next_action": "search_documents",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销 费用发生后 提交 天数",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "报销 费用发生后 提交 天数",
+          "matched_topics": [
+            "reimbursement_deadline"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-10-20",
+              "scope": null,
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "reimbursement_deadline"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 4,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "answer",
+        "decision_basis": "检索到唯一的报销期限条款（费用报销制度A），无其他相关或冲突文本。",
+        "citations": [
+          {
+            "document_id": "D01",
+            "fragment_id": "F01",
+            "quote": "报销申请须在费用发生后45天内提交。"
+          }
+        ]
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-changed_document",
+          "status": "answered",
+          "question": "报销期限多久？",
+          "answer": "根据已核验原文：\n[D01@2026-10-20] 报销申请须在费用发生后45天内提交。",
+          "citations": [
+            {
+              "document_id": "D01",
+              "fragment_id": "F01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-10-20",
+              "scope": null,
+              "priority": null,
+              "content_sha256": "2df80dd162113537efde39bd92ab96e1ac7f348e4990b6f0f8edca75aac56309",
+              "quote": "报销申请须在费用发生后45天内提交。"
+            }
+          ],
+          "knowledge_gaps": [],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "检索到唯一的报销期限条款（费用报销制度A），无其他相关或冲突文本。"
+    }
+  ],
+  "published": false,
+  "catalog": "changed.json",
+  "final_status": "answered",
+  "finished_at": "2026-10-28T14:55:44.090741+00:00",
+  "result": {
+    "request_id": "qa-changed_document",
+    "status": "answered",
+    "question": "报销期限多久？",
+    "answer": "根据已核验原文：\n[D01@2026-10-20] 报销申请须在费用发生后45天内提交。",
+    "citations": [
+      {
+        "document_id": "D01",
+        "fragment_id": "F01",
+        "title": "费用报销制度A（合成）",
+        "version_date": "2026-10-20",
+        "scope": null,
+        "priority": null,
+        "content_sha256": "2df80dd162113537efde39bd92ab96e1ac7f348e4990b6f0f8edca75aac56309",
+        "quote": "报销申请须在费用发生后45天内提交。"
+      }
+    ],
+    "knowledge_gaps": [],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

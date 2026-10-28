@@ -1,0 +1,16 @@
+{
+  "request_id": "qa-out_of_scope",
+  "status": "not_found",
+  "question": "明天上海会下雨吗？",
+  "answer": "暂时无法提供有依据的答案。",
+  "citations": [],
+  "knowledge_gaps": [
+    "当前合成知识库没有已核验且支持该问题的原文。"
+  ],
+  "clarifying_question": null,
+  "conflicts": [],
+  "missing_fragments": [],
+  "tool_errors": [],
+  "answer_style": "verified_extractive",
+  "published": false
+}

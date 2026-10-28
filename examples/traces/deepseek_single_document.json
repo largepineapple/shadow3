@@ -1,0 +1,145 @@
+{
+  "case_id": "qa-single_document",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:55:03.786772+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "报销期限",
+          "matched_topics": [
+            "reimbursement_deadline"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-09-01",
+              "scope": null,
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "reimbursement_deadline"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D01",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "document_id": "D01",
+          "fragment_id": "F01",
+          "version_date": "2026-09-01",
+          "title": "费用报销制度A（合成）",
+          "scope": null,
+          "priority": null,
+          "topic": "reimbursement_deadline",
+          "text": "报销申请须在费用发生后30天内提交。",
+          "content_sha256": "e655c806e9dfc35b27c25aaf525994c17c6a1d497951016873180473f2eafaff"
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "answer",
+        "citations": [
+          {
+            "document_id": "D01",
+            "fragment_id": "F01",
+            "quote": "报销申请须在费用发生后30天内提交。"
+          }
+        ],
+        "decision_basis": "检索到唯一相关制度片段《费用报销制度A（合成）》F01，明确规定了报销申请提交期限。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-single_document",
+          "status": "answered",
+          "question": "报销期限多久？",
+          "answer": "根据已核验原文：\n[D01@2026-09-01] 报销申请须在费用发生后30天内提交。",
+          "citations": [
+            {
+              "document_id": "D01",
+              "fragment_id": "F01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-09-01",
+              "scope": null,
+              "priority": null,
+              "content_sha256": "e655c806e9dfc35b27c25aaf525994c17c6a1d497951016873180473f2eafaff",
+              "quote": "报销申请须在费用发生后30天内提交。"
+            }
+          ],
+          "knowledge_gaps": [],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "检索到唯一相关制度片段《费用报销制度A（合成）》F01，明确规定了报销申请提交期限。"
+    }
+  ],
+  "published": false,
+  "catalog": "single.json",
+  "final_status": "answered",
+  "finished_at": "2026-10-28T14:55:21.069790+00:00",
+  "result": {
+    "request_id": "qa-single_document",
+    "status": "answered",
+    "question": "报销期限多久？",
+    "answer": "根据已核验原文：\n[D01@2026-09-01] 报销申请须在费用发生后30天内提交。",
+    "citations": [
+      {
+        "document_id": "D01",
+        "fragment_id": "F01",
+        "title": "费用报销制度A（合成）",
+        "version_date": "2026-09-01",
+        "scope": null,
+        "priority": null,
+        "content_sha256": "e655c806e9dfc35b27c25aaf525994c17c6a1d497951016873180473f2eafaff",
+        "quote": "报销申请须在费用发生后30天内提交。"
+      }
+    ],
+    "knowledge_gaps": [],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

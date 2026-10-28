@@ -1,0 +1,145 @@
+{
+  "case_id": "qa-product",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:55:44.303218+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "产品导出格式",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "产品导出格式",
+          "matched_topics": [
+            "export_formats"
+          ],
+          "total_matches": 1,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D04",
+              "title": "Orion产品导出FAQ（合成）",
+              "version_date": "2026-10-10",
+              "scope": "Orion产品",
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "export_formats"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "read_fragment",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "read_fragment",
+      "arguments": {
+        "document_id": "D04",
+        "fragment_id": "F01"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "document_id": "D04",
+          "fragment_id": "F01",
+          "version_date": "2026-10-10",
+          "title": "Orion产品导出FAQ（合成）",
+          "scope": "Orion产品",
+          "priority": null,
+          "topic": "export_formats",
+          "text": "Orion产品支持导出CSV和XLSX格式的文件。",
+          "content_sha256": "67e58977986f86b6af1cb34ea420a3059e0f552ac0b9aa7ceb3c899b8712c81e"
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "answer",
+        "citations": [
+          {
+            "document_id": "D04",
+            "fragment_id": "F01",
+            "quote": "Orion产品支持导出CSV和XLSX格式的文件。"
+          }
+        ],
+        "decision_basis": "Orion产品导出FAQ明确说明支持的导出格式为CSV和XLSX。"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-product",
+          "status": "answered",
+          "question": "产品可以导出哪些格式？",
+          "answer": "根据已核验原文：\n[D04@2026-10-10] Orion产品支持导出CSV和XLSX格式的文件。",
+          "citations": [
+            {
+              "document_id": "D04",
+              "fragment_id": "F01",
+              "title": "Orion产品导出FAQ（合成）",
+              "version_date": "2026-10-10",
+              "scope": "Orion产品",
+              "priority": null,
+              "content_sha256": "67e58977986f86b6af1cb34ea420a3059e0f552ac0b9aa7ceb3c899b8712c81e",
+              "quote": "Orion产品支持导出CSV和XLSX格式的文件。"
+            }
+          ],
+          "knowledge_gaps": [],
+          "clarifying_question": null,
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "Orion产品导出FAQ明确说明支持的导出格式为CSV和XLSX。"
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "answered",
+  "finished_at": "2026-10-28T14:56:01.421520+00:00",
+  "result": {
+    "request_id": "qa-product",
+    "status": "answered",
+    "question": "产品可以导出哪些格式？",
+    "answer": "根据已核验原文：\n[D04@2026-10-10] Orion产品支持导出CSV和XLSX格式的文件。",
+    "citations": [
+      {
+        "document_id": "D04",
+        "fragment_id": "F01",
+        "title": "Orion产品导出FAQ（合成）",
+        "version_date": "2026-10-10",
+        "scope": "Orion产品",
+        "priority": null,
+        "content_sha256": "67e58977986f86b6af1cb34ea420a3059e0f552ac0b9aa7ceb3c899b8712c81e",
+        "quote": "Orion产品支持导出CSV和XLSX格式的文件。"
+      }
+    ],
+    "knowledge_gaps": [],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

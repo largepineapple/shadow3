@@ -1,0 +1,101 @@
+{
+  "case_id": "qa-ambiguous",
+  "mode": "mock",
+  "model": "deterministic-mock-no-LLM",
+  "started_at": "2026-10-28T14:47:26.188572+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "那有多久？",
+        "max_results": 3
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "那有多久？",
+          "matched_topics": [],
+          "total_matches": 0,
+          "has_more": false,
+          "hits": []
+        },
+        "error": null
+      },
+      "next_action": "search_documents",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "search_documents",
+      "arguments": {
+        "query": "企业制度或产品FAQ",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "企业制度或产品FAQ",
+          "matched_topics": [],
+          "total_matches": 0,
+          "has_more": false,
+          "hits": []
+        },
+        "error": null
+      },
+      "next_action": "finalize_answer",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "finalize_answer",
+      "arguments": {
+        "mode": "clarify",
+        "citations": [],
+        "decision_basis": "No verified evidence for this question"
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "request_id": "qa-ambiguous",
+          "status": "needs_clarification",
+          "question": "那有多久？",
+          "answer": "需要补充信息后才能可靠回答。",
+          "citations": [],
+          "knowledge_gaps": [
+            "当前合成知识库没有已核验且支持该问题的原文。"
+          ],
+          "clarifying_question": "请明确需要查询的制度、产品问题或适用范围。",
+          "conflicts": [],
+          "missing_fragments": [],
+          "tool_errors": [],
+          "answer_style": "verified_extractive",
+          "published": false
+        },
+        "error": null
+      },
+      "next_action": null,
+      "decision_basis": "No verified evidence for this question"
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "needs_clarification",
+  "finished_at": "2026-10-28T14:47:26.192573+00:00",
+  "result": {
+    "request_id": "qa-ambiguous",
+    "status": "needs_clarification",
+    "question": "那有多久？",
+    "answer": "需要补充信息后才能可靠回答。",
+    "citations": [],
+    "knowledge_gaps": [
+      "当前合成知识库没有已核验且支持该问题的原文。"
+    ],
+    "clarifying_question": "请明确需要查询的制度、产品问题或适用范围。",
+    "conflicts": [],
+    "missing_fragments": [],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "request_id": "qa-follow_up",
+  "question": "那每年有几天？",
+  "history": [
+    {
+      "role": "user",
+      "content": "我想了解年假制度。"
+    },
+    {
+      "role": "assistant",
+      "content": "请问您具体想了解哪方面？"
+    }
+  ]
+}

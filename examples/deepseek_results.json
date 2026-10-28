@@ -1,0 +1,277 @@
+{
+  "mode": "live",
+  "cases": [
+    {
+      "name": "clear",
+      "input": "examples/inputs/clear.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 16.837
+    },
+    {
+      "name": "conflict",
+      "input": "examples/inputs/conflict.json",
+      "documents": "data/documents.json",
+      "status": "incomplete",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "model_error",
+        "model_error"
+      ],
+      "checks": {
+        "status": false,
+        "not_published": true,
+        "exit_code": false,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": false,
+        "both_sides": false,
+        "asks_scope": false
+      },
+      "passed": false,
+      "elapsed_seconds": 17.128
+    },
+    {
+      "name": "out_of_scope",
+      "input": "examples/inputs/out_of_scope.json",
+      "documents": "data/documents.json",
+      "status": "not_found",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "search_documents",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 17.204
+    },
+    {
+      "name": "paraphrase",
+      "input": "examples/inputs/paraphrase.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "model_error",
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 23.506
+    },
+    {
+      "name": "follow_up",
+      "input": "examples/inputs/follow_up.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 17.677
+    },
+    {
+      "name": "tool_failure",
+      "input": "examples/inputs/tool_failure.json",
+      "documents": "data/documents.json",
+      "status": "tool_failed",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true,
+        "error_observed": true
+      },
+      "passed": true,
+      "elapsed_seconds": 22.633
+    },
+    {
+      "name": "single_document",
+      "input": "examples/inputs/single_document.json",
+      "documents": "examples/fixtures/single.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "document_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 17.595
+    },
+    {
+      "name": "changed_document",
+      "input": "examples/inputs/changed_document.json",
+      "documents": "examples/fixtures/changed.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "search_documents",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "document_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 23.007
+    },
+    {
+      "name": "product",
+      "input": "examples/inputs/product.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 17.331
+    },
+    {
+      "name": "ambiguous",
+      "input": "examples/inputs/ambiguous.json",
+      "documents": "data/documents.json",
+      "status": "needs_clarification",
+      "model": "deepseek-flash",
+      "actions": [
+        "finalize_answer",
+        "search_documents",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 18.018
+    },
+    {
+      "name": "transient_failure",
+      "input": "examples/inputs/clear.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deepseek-flash",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true,
+        "error_observed": true
+      },
+      "passed": true,
+      "elapsed_seconds": 23.103
+    }
+  ],
+  "elapsed_seconds": 214.062
+}

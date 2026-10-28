@@ -1,0 +1,107 @@
+{
+  "case_id": "qa-conflict",
+  "mode": "live",
+  "model": "deepseek-flash",
+  "started_at": "2026-10-28T14:53:25.674643+00:00",
+  "steps": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限",
+        "max_results": 10
+      },
+      "observation_summary": {
+        "ok": true,
+        "data": {
+          "query": "报销期限",
+          "matched_topics": [
+            "reimbursement_deadline"
+          ],
+          "total_matches": 2,
+          "has_more": false,
+          "hits": [
+            {
+              "document_id": "D01",
+              "title": "费用报销制度A（合成）",
+              "version_date": "2026-09-01",
+              "scope": null,
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "reimbursement_deadline"
+                }
+              ]
+            },
+            {
+              "document_id": "D02",
+              "title": "费用报销制度B（合成）",
+              "version_date": "2026-10-01",
+              "scope": null,
+              "priority": null,
+              "fragments": [
+                {
+                  "fragment_id": "F01",
+                  "topic": "reimbursement_deadline"
+                }
+              ]
+            }
+          ]
+        },
+        "error": null
+      },
+      "next_action": "model_error",
+      "decision_basis": ""
+    },
+    {
+      "step": 2,
+      "action": "model_error",
+      "arguments": {},
+      "observation_summary": {
+        "error": "Model must return exactly one tool call"
+      },
+      "next_action": "model_error",
+      "decision_basis": ""
+    },
+    {
+      "step": 3,
+      "action": "model_error",
+      "arguments": {},
+      "observation_summary": {
+        "error": "Model must return exactly one tool call"
+      },
+      "next_action": null,
+      "decision_basis": ""
+    }
+  ],
+  "published": false,
+  "catalog": "documents.json",
+  "final_status": "incomplete",
+  "finished_at": "2026-10-28T14:53:42.452523+00:00",
+  "result": {
+    "request_id": "qa-conflict",
+    "status": "incomplete",
+    "question": "报销期限多久？",
+    "answer": "暂时无法提供有依据的答案。",
+    "citations": [],
+    "knowledge_gaps": [
+      "Model request/response failed: Model must return exactly one tool call"
+    ],
+    "clarifying_question": null,
+    "conflicts": [],
+    "missing_fragments": [
+      [
+        "D01",
+        "F01"
+      ],
+      [
+        "D02",
+        "F01"
+      ]
+    ],
+    "tool_errors": [],
+    "answer_style": "verified_extractive",
+    "published": false
+  }
+}

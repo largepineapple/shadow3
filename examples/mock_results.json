@@ -1,0 +1,277 @@
+{
+  "mode": "mock",
+  "cases": [
+    {
+      "name": "clear",
+      "input": "examples/inputs/clear.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.173
+    },
+    {
+      "name": "conflict",
+      "input": "examples/inputs/conflict.json",
+      "documents": "data/documents.json",
+      "status": "conflict",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "both_sides": true,
+        "asks_scope": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.22
+    },
+    {
+      "name": "out_of_scope",
+      "input": "examples/inputs/out_of_scope.json",
+      "documents": "data/documents.json",
+      "status": "not_found",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "search_documents",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.265
+    },
+    {
+      "name": "paraphrase",
+      "input": "examples/inputs/paraphrase.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.162
+    },
+    {
+      "name": "follow_up",
+      "input": "examples/inputs/follow_up.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.294
+    },
+    {
+      "name": "tool_failure",
+      "input": "examples/inputs/tool_failure.json",
+      "documents": "data/documents.json",
+      "status": "tool_failed",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true,
+        "error_observed": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.27
+    },
+    {
+      "name": "single_document",
+      "input": "examples/inputs/single_document.json",
+      "documents": "examples/fixtures/single.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "document_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.217
+    },
+    {
+      "name": "changed_document",
+      "input": "examples/inputs/changed_document.json",
+      "documents": "examples/fixtures/changed.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "document_value": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.321
+    },
+    {
+      "name": "product",
+      "input": "examples/inputs/product.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.262
+    },
+    {
+      "name": "ambiguous",
+      "input": "examples/inputs/ambiguous.json",
+      "documents": "data/documents.json",
+      "status": "needs_clarification",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "search_documents",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "no_unverified_citations": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.26
+    },
+    {
+      "name": "transient_failure",
+      "input": "examples/inputs/clear.json",
+      "documents": "data/documents.json",
+      "status": "answered",
+      "model": "deterministic-mock-no-LLM",
+      "actions": [
+        "search_documents",
+        "read_fragment",
+        "read_fragment",
+        "finalize_answer"
+      ],
+      "checks": {
+        "status": true,
+        "not_published": true,
+        "exit_code": true,
+        "source_quotes": true,
+        "result_matches_trace": true,
+        "loop_observed": true,
+        "has_citations": true,
+        "right_source": true,
+        "right_value": true,
+        "error_observed": true
+      },
+      "passed": true,
+      "elapsed_seconds": 0.292
+    }
+  ],
+  "elapsed_seconds": 2.746
+}
